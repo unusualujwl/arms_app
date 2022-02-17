@@ -1,4 +1,7 @@
+import 'package:arms_app/login_screen.dart';
+import 'package:arms_app/verification_page.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class PortalLogin extends StatefulWidget {
   const PortalLogin({Key? key}) : super(key: key);
@@ -12,16 +15,13 @@ class _PortalLoginState extends State<PortalLogin> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (BuildContext context) => PortalLogin()));
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      backgroundColor: AppColors.themeColor,
+      body: Column(
         children: [
           Container(
             decoration: const BoxDecoration(
@@ -32,8 +32,90 @@ class _PortalLoginState extends State<PortalLogin> {
                   end: Alignment.bottomCenter,
                 )),
           ),
-          Center(
-            child: Container(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
+              Image.asset(
+                'assets/images/logo.png',
+                height: 100,
+                width: 100,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Text(
+                  'Enter Crew Portal Login ID',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              //
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                color: Colors.white,
+                width: 50,
+                height: 35,
+                child: const Center(
+                  child: Text(
+                    'ARMS',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    // border: Border.all(
+                    //   color: Colors.red,
+                    // ),
+                    borderRadius: BorderRadius.all(Radius.circular(0))),
+                width: MediaQuery.of(context).size.width * 0.7,
+                height: 35,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 40),
+                  child: TextFormField(
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        errorBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        hintText: ' Login ID',
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const Verification()));
+                            },
+                            icon:
+                                const Icon(Icons.cancel, color: Colors.blue))),
+                    validator: (text) {
+                      // if (!(text.length > 5) && text.isNotEmpty) {
+                      //   return "Enter valid name of more then 5 characters!";
+                      // }
+                      return null;
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.7,
+              child: const Text(
+                'Client Id Should be 2 or 3 digit IATA code',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           )
         ],
       ),
