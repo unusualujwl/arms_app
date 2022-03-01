@@ -1,0 +1,147 @@
+{
+
+    "status": true,
+
+    "list_data":[
+
+        {
+
+            "id": 0,
+
+            "date": "14-02-2022",
+
+            "icon": "flight",
+
+            "flight_id": "QW12",
+
+            "source_code": "GOI",
+
+            "destination_code": "BOM",
+
+            "take_off_timing": "23:00",
+
+            "landing_timing": "00:30"
+
+          },
+
+          {
+
+            "id": 1,
+
+            "date": "15-02-2022",
+
+            "icon": "book",
+
+            "flight_id": "SD193",
+
+            "source_code": "TKR",
+
+            "destination_code": "BOM",
+
+            "take_off_timing": "22:00",
+
+            "landing_timing": "21:30"
+
+          },
+
+          {
+
+            "id": 2,
+
+            "date": "15-02-2022",
+
+            "icon": "flight",
+
+            "flight_id": "KD152",
+
+            "source_code": "BOM",
+
+            "destination_code": "DEL",
+
+            "take_off_timing": "6:00",
+
+            "landing_timing": "7:30"
+
+          },
+          {
+
+            "id": 2,
+
+            "date": "15-02-2022",
+
+            "icon": "flight",
+
+            "flight_id": "KD152",
+
+            "source_code": "BOM",
+
+            "destination_code": "DEL",
+
+            "take_off_timing": "6:00",
+
+            "landing_timing": "7:30"
+
+          },
+          {
+
+            "id": 2,
+
+            "date": "15-02-2022",
+
+            "icon": "flight",
+
+            "flight_id": "KD152",
+
+            "source_code": "BOM",
+
+            "destination_code": "DEL",
+
+            "take_off_timing": "6:00",
+
+            "landing_timing": "7:30"
+
+          },
+          {
+
+            "id": 2,
+
+            "date": "15-02-2022",
+
+            "icon": "flight",
+
+            "flight_id": "KD152",
+
+            "source_code": "BOM",
+
+            "destination_code": "DEL",
+
+            "take_off_timing": "6:00",
+
+            "landing_timing": "7:30"
+
+          },
+          {
+
+            "id": 2,
+
+            "date": "15-02-2022",
+
+            "icon": "flight",
+
+            "flight_id": "KD152",
+
+            "source_code": "BOM",
+
+            "destination_code": "DEL",
+
+            "take_off_timing": "6:00",
+
+            "landing_timing": "7:30"
+
+          }
+
+          
+
+    ]
+
+    }

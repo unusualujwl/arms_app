@@ -1,0 +1,47 @@
+{
+"status":true,
+"flt_info_data":{
+"date":"14 feb",
+"flight_id":"SD125",
+"reporting_time":"20:00 L/16:30 Z",
+"a/c_redg":"TD-026",
+"departure_station":"GOA",
+"departure_station_code":"GOI",
+"departure_terminal":"T1",
+"departure_bay_number":"12",
+"departure_time":"17:30 L",
+"departure_time_with_time_zone":"(23:00 L)",
+"arrival_station":"MUMBAI",
+"arrival_station_code":"BOM",
+"arrival_terminal":"T5",
+"arrival_bay_number":"18",
+"arrival_time":"19:00 Z",
+"arrivale_time_with_time_zone":"(STA:00:30 L)",
+"block_time":"01:30"
+},
+
+"air_crew_data":
+[
+{
+    "member_position":"(LS)",
+    "member_name":"TERINO",
+    "member_number":"1234567890"
+},
+{
+    "member_position":"(RS)",
+    "member_name":"RAHUL",
+    "member_number":"0987654321"
+}
+
+],
+"remarks":
+{
+"hotac":"HOTAC: LAYOVER at TAJ HOTEL,BOM",
+"ref_no":"Ref No.: BKN2100288",
+"status":"Status: PENDING",
+"from":"From: 14 jun 2021 19:00",
+"to":"To: 15 jun 2021 16:30"
+
+}
+
+}

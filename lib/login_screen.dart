@@ -1,7 +1,9 @@
 import 'dart:ui';
 
 import 'package:arms_app/constants.dart';
+import 'package:arms_app/homepage.dart';
 import 'package:flutter/material.dart';
+import 'homepage.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -18,6 +20,7 @@ class InitState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text("ARMS on Mobile")),
+        centerTitle: true,
         backgroundColor: const Color(0xFF204F84),
       ),
       body: SingleChildScrollView(
@@ -37,7 +40,7 @@ class InitState extends State<LoginScreen> {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.symmetric(vertical: 7),
                 child: Text(
                   'Enter crew portal login credentials',
                   style: TextStyle(
@@ -47,17 +50,17 @@ class InitState extends State<LoginScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.symmetric(vertical: 6),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
                       child: Container(
-                        height: 30,
-                        width: 30,
-                        child: Image.asset('assets/images/logo.png'),
+                        height: 35,
+                        width: 35,
+                        child: Image.asset('assets/images/user.png'),
                       ),
                     ),
                     Container(
@@ -67,7 +70,7 @@ class InitState extends State<LoginScreen> {
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(0),
-                        color: Colors.grey,
+                        color: Colors.grey[300],
                       ),
                       alignment: Alignment.center,
                       child: const TextField(
@@ -91,11 +94,11 @@ class InitState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: Container(
-                      height: 30,
-                      width: 30,
-                      child: Image.asset('assets/images/logo.png'),
+                      height: 35,
+                      width: 35,
+                      child: Image.asset('assets/images/lock.png'),
                     ),
                   ),
                   Padding(
@@ -107,7 +110,7 @@ class InitState extends State<LoginScreen> {
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(0),
-                        color: Colors.grey,
+                        color: Colors.grey[300],
                       ),
                       alignment: Alignment.center,
                       child: const TextField(
@@ -128,7 +131,10 @@ class InitState extends State<LoginScreen> {
                 ],
               ),
               GestureDetector(
-                onTap: () => {},
+                onTap: () => {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const HomePage()))
+                },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Container(

@@ -1,6 +1,7 @@
 import 'package:arms_app/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pin_put/pin_put.dart';
+import 'constants.dart';
 import 'login_screen.dart';
 
 class Verification extends StatefulWidget {
@@ -33,7 +34,7 @@ class _VerificationState extends State<Verification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo.shade900, // AppColors.themeColor
+      backgroundColor: AppColors.themeColor, // AppColors.themeColor
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,7 +65,7 @@ class _VerificationState extends State<Verification> {
               child: Text(
                 '( OTP expires in 5 minutes )',
                 style:
-                    TextStyle(color: Colors.grey, fontWeight: FontWeight.w600),
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
               ),
             ),
             GestureDetector(
@@ -75,7 +76,7 @@ class _VerificationState extends State<Verification> {
               child: const Text(
                 'Resend',
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Colors.white,
                   fontSize: 15,
                   decoration: TextDecoration.underline,
                 ),
@@ -89,7 +90,7 @@ class _VerificationState extends State<Verification> {
 
   Widget pincodeFields() {
     const BoxDecoration pinPutDecoration = BoxDecoration(
-      color: Colors.grey,
+      color: Colors.white,
       // borderRadius: BorderRadius.circular(5.0),
     );
 

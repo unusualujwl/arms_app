@@ -94,8 +94,8 @@ class _PortalLoginState extends State<PortalLogin> {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => const Verification()));
                             },
-                            icon:
-                                const Icon(Icons.cancel, color: Colors.blue))),
+                            icon: const Icon(Icons.arrow_circle_right,
+                                color: Colors.blue))),
                     validator: (text) {
                       // if (!(text.length > 5) && text.isNotEmpty) {
                       //   return "Enter valid name of more then 5 characters!";
