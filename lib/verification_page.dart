@@ -34,7 +34,7 @@ class _VerificationState extends State<Verification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.themeColor, // AppColors.themeColor
+      backgroundColor: AppColors.colorcement, // AppColors.themeColor
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,7 +76,7 @@ class _VerificationState extends State<Verification> {
               child: const Text(
                 'Resend',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.themeColor,
                   fontSize: 15,
                   decoration: TextDecoration.underline,
                 ),
@@ -119,6 +119,10 @@ class _VerificationState extends State<Verification> {
         followingFieldDecoration: pinPutDecoration,
       ),
     );
+    // Align(
+    //   alignment: Alignment.bottomCenter,
+    //   child: Text('Powered by ARMS'),
+    // ); // ignore: prefer_const_constructors
   }
 
   pinPut(

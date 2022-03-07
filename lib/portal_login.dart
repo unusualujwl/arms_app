@@ -20,7 +20,7 @@ class _PortalLoginState extends State<PortalLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.themeColor,
+      backgroundColor: Colors.grey,
       body: Column(
         children: [
           Container(
@@ -46,7 +46,7 @@ class _PortalLoginState extends State<PortalLogin> {
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: Text(
-                  'Enter Crew Portal Login ID',
+                  'Enter Login ID',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
@@ -62,7 +62,7 @@ class _PortalLoginState extends State<PortalLogin> {
                 height: 35,
                 child: const Center(
                   child: Text(
-                    'ARMS',
+                    'CAAST',
                     style: TextStyle(color: Colors.grey),
                   ),
                 ),
@@ -107,16 +107,16 @@ class _PortalLoginState extends State<PortalLogin> {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.7,
-              child: const Text(
-                'Client Id Should be 2 or 3 digit IATA code',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          )
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(vertical: 10),
+          //   child: Container(
+          //     width: MediaQuery.of(context).size.width * 0.7,
+          //     child: const Text(
+          //       'Client Id Should be 2 or 3 digit IATA code',
+          //       style: TextStyle(color: Colors.white),
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );

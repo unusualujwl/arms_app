@@ -140,7 +140,7 @@ class _tqd_pageState extends State<tqd_page> {
                     );
                   },
                   itemCount: provider
-                      .tqd_data_live!.getDocValidityDetailsResult!.length!);
+                      .tqd_data_live!.getDocValidityDetailsResult!.length);
         }),
       ),
     );

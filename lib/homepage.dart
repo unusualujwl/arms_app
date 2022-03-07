@@ -16,22 +16,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<String> strArray = [
-    'Crew Roaster',
+    'Staff Roaster',
     'TQD',
-    'Check FDTL',
-    'Flight Tracker',
-    'Movement Timings',
-    'Weather',
-    'eForms',
-    'Voluntry Safty Form',
-    'Station Contacts',
+    'DTL/Recency',
     'Leave',
-    'eDocs',
-    'Web Links',
-    'Check FDTL',
+    'Swap Board',
+    'Notifications',
+    'Manning Dashboard',
     'Settings',
-    'Report issue/ Feedback',
-    'Terms & Conditions'
+    'About Us',
+    'Report Issue/ Feedback',
+    'Terms & conditions',
   ];
   List<String> imgArray = [
     AppImages.image1,
@@ -45,11 +40,11 @@ class _HomePageState extends State<HomePage> {
     AppImages.image9,
     AppImages.image10,
     AppImages.image11,
-    AppImages.image12,
-    AppImages.image13,
-    AppImages.image14,
-    AppImages.image15,
-    AppImages.image16,
+    // AppImages.image12,
+    // AppImages.image13,
+    // AppImages.image14,
+    // AppImages.image15,
+    // AppImages.image16,
   ];
   @override
   Widget build(BuildContext context) {
@@ -76,7 +71,7 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: AppColors.themeColor,
+        backgroundColor: AppColors.colorcement,
       ),
       body: Column(
         children: [
@@ -150,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                 }),
           ),
           Container(
-            color: AppColors.themeColor,
+            color: AppColors.colorcement,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [

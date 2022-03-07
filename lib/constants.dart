@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color themeColor = Color(0xFF204F84);
   static const Color colorLight = Color(0xFFD3E3F2);
+  static const Color colorcement = Color(0xFFc4c8d4);
 }
 
 class AppImages {

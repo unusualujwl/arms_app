@@ -21,7 +21,7 @@ class InitState extends State<LoginScreen> {
       appBar: AppBar(
         title: const Center(child: Text("ARMS on Mobile")),
         centerTitle: true,
-        backgroundColor: const Color(0xFF204F84),
+        backgroundColor: AppColors.colorcement,
       ),
       body: SingleChildScrollView(
         child: Container(
