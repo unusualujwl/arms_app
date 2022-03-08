@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:arms_app/constants.dart';
+import 'package:arms_app/logs/logs.dart';
 import 'package:flutter/material.dart';
 import 'client_id.dart';
 
@@ -16,7 +17,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    LogsGenrate().initmethod();
     Timer(const Duration(seconds: 3), () {
+      print("this is first log");
+
+      LogsGenrate.logger.d("Debug log");
+      LogsGenrate.logger.i("Info log");
+      LogsGenrate.logger.w("Warning log");
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (BuildContext context) => const ClientId()));
     });
