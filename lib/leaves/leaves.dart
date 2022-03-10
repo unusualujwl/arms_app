@@ -1,4 +1,3 @@
-
 import 'package:arms_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as intl;
@@ -18,6 +17,7 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
   final TextEditingController _toDateController = TextEditingController();
   final TextEditingController _leavesDaysController = TextEditingController();
   final TextEditingController _leaveReasonController = TextEditingController();
+  final ValueNotifier<bool> _tabBarIndexCheck = ValueNotifier<bool>(false);
 
   final List<Map> _leaveData = [
     {
@@ -45,6 +45,13 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(() {
+      if (_tabController.index == 1) {
+        _tabBarIndexCheck.value = true;
+      } else {
+        _tabBarIndexCheck.value = false;
+      }
+    });
     super.initState();
   }
 
@@ -56,17 +63,45 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          elevation: 0,
-          title: _appBar(),
-          backgroundColor: AppColors.colorcement,
-        ),
-        body: _body(),
-      ),
-    );
+    // return SafeArea(
+    //             child: Scaffold(
+    //               backgroundColor: Colors.white,
+    //               appBar: AppBar(
+    //                 automaticallyImplyLeading: false,
+    //                 elevation: 0,
+    //                 title: _appBar(),
+    //                 backgroundColor: AppColors.colorcement,
+    //               ),
+    //               body: _body(),
+    //               bottomNavigationBar: _bottomBar(),
+    //             ),
+    //           );
+    return ValueListenableBuilder(
+        valueListenable: _tabBarIndexCheck,
+        builder: (context, value, _) {
+          return Stack(
+            children: [
+              SafeArea(
+                child: Scaffold(
+                  backgroundColor: Colors.white,
+                  appBar: AppBar(
+                    automaticallyImplyLeading: false,
+                    elevation: 0,
+                    title: _appBar(),
+                    backgroundColor: AppColors.colorcement,
+                  ),
+                  body: _body(),
+                  bottomNavigationBar: _bottomBar(),
+                ),
+              ),
+              if (_tabBarIndexCheck.value)
+                Container(
+                  color: Colors.black38,
+                ),
+              if (_tabBarIndexCheck.value) _statusTabView()
+            ],
+          );
+        });
   }
 
   Widget _body() {
@@ -83,14 +118,19 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
           child: Row(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
                 child: const Icon(
                   Icons.arrow_back_ios,
                   color: Colors.white,
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                                    Navigator.of(context).pop();
+
+                },
                 child: const Text(
                   'Home',
                   style: TextStyle(
@@ -123,22 +163,22 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
         Container(
           margin: const EdgeInsets.symmetric(vertical: 15),
           height: 45,
-          color: Colors.grey.shade300,
+          color: AppColors.colorcement,
           child: TabBar(
             controller: _tabController,
+
             // give the indicator a decoration (color and border radius)
-            indicator: BoxDecoration(
-              color: Colors.grey.shade500,
+            indicator: const BoxDecoration(
+              color: AppColors.jumbo,
             ),
             labelColor: Colors.white,
             labelStyle:
                 const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-            unselectedLabelColor: Colors.black,
+            unselectedLabelColor: Colors.white,
             tabs: const [
               Tab(
                 text: 'APPLY',
               ),
-
               Tab(
                 text: 'STATUS',
               ),
@@ -152,58 +192,63 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
             children: [
               // first tab bar view widget
               _leaveTabView(),
+
               // second tab bar view widget
-                 Container()
+              // _statusTabView()
+              Container(
+                height: 0,
+              )
             ],
           ),
         ),
-        Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              const Text(
-                                " Powerd by ARMS",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                    fontSize: 10),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(bottom: 10.0),
-                                child: Text(
-                                  "Ⓡ",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontSize: 8),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              const Text(
-                                " Last Sync 2-Mar-2022 4:00",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                    fontSize: 10),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    color: AppColors.themeColor,
-                  )
       ],
+    );
+  }
+
+  Widget _bottomBar() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: Padding(
+        padding: const EdgeInsets.all(2.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: const [
+                Text(
+                  " Powerd by ARMS",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 10),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 10.0),
+                  child: Text(
+                    "Ⓡ",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 8),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: const [
+                Text(
+                  " Last Sync 2-Mar-2022 4:00",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 10),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+      color: AppColors.colorcement,
     );
   }
 
@@ -300,7 +345,7 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
     return TextField(
       controller: _leaveReasonController,
       maxLines: null,
-     
+
       // expands: true,
       decoration: const InputDecoration(
         hintText: "Reason for leave",
@@ -308,7 +353,6 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
       ),
     );
   }
-
 
   Widget _leaveTypeDropDown() {
     return ValueListenableBuilder(
@@ -332,7 +376,6 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
                 );
               }).toList(),
               onChanged: (text) {
-                print("====>>>>$text");
                 _dropdownValue.value = text ?? '';
               },
             ),
@@ -367,7 +410,7 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
           ),
           InkWell(
             onTap: () {
-              _dropdownValue.value ='';
+              _dropdownValue.value = '';
               _fromDateController.clear();
               _toDateController.clear();
               _leavesDaysController.clear();
@@ -442,11 +485,11 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
                             ),
                             children: [
                               _tableText(
-                                  _leaveData[index]['leave_type'], index),
+                                  _leaveData[index]['leave_balance'], index),
                               _tableText(
                                   _leaveData[index]["entitlement"], index),
                               _tableText(
-                                  _leaveData[index]["leave_balance"], index),
+                                  _leaveData[index]["leave_type"], index),
                             ]),
                       )),
                 ),
@@ -458,12 +501,13 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
 
   _tableText(text, index) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 3),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Text(
         text,
         textScaleFactor: 1.5,
         textAlign: TextAlign.center,
         style: TextStyle(
+            fontSize: 12,
             fontWeight: index == 0 ? FontWeight.bold : FontWeight.normal),
       ),
     );
@@ -487,7 +531,7 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
           Container(
             width: MediaQuery.of(context).size.width / 2,
             // height: 40,
-            color: AppColors.colorLight,
+            color: AppColors.colorWhite_240,
             child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
@@ -498,16 +542,58 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
     );
   }
 
-  //   _statusTabView(){
-    
-  //    AlertDialog(
-  //                                       backgroundColor: Colors.white,
-  //                                       shape: RoundedRectangleBorder(
-  //                                           borderRadius: BorderRadius.all(
-  //                                               Radius.circular(5.0))),
-  //                                       content: Text("demo"));
-                                  
-    
-  // }
+  Widget _statusTabView() {
+    return Container(
+      color: Colors.black38,
+      child: Center(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width / 1.4,
+          child: Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0)),
+            color: Colors.white,
+            elevation: 4,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Text(
+                    "Info",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(12),
+                  child: Text(
+                    "No data available",
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                ),
+                const Divider(
+                  thickness: 1.5,
+                  color: AppColors.colorcement,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: InkWell(
+                    onTap: () {
+                      _tabBarIndexCheck.value = false;
+                    },
+                    child: const Text(
+                      "OK",
+                      style: TextStyle(color: Colors.blue, fontSize: 16),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
-
+}

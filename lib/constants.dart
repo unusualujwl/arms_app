@@ -4,6 +4,11 @@ class AppColors {
   static const Color themeColor = Color(0xFF204F84);
   static const Color colorLight = Color(0xFFD3E3F2);
   static const Color colorcement = Color(0xFFc4c8d4);
+  static const Color colorWhite_240 = Color(0xFFF0F0F0);
+    static const Color jumbo = Color(0xFF888888);
+        static const Color oil = Color(0xFF333333);
+
+
 }
 
 class AppImages {
