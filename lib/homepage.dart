@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:arms_app/constants.dart';
 import 'package:arms_app/crew_roster/crew_roaster.dart';
+import 'package:arms_app/leaves/leaves.dart';
 import 'package:arms_app/providers/crew_roster_provider.dart';
 import 'package:arms_app/tqd_page.dart';
 import 'package:flutter/material.dart';
@@ -94,6 +95,9 @@ class _HomePageState extends State<HomePage> {
                               } else if (index == 1) {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => const tqd_page()));
+                              }else if (index == 3) {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const Leaves()));
                               }
                             },
                             child: Container(

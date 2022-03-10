@@ -60,6 +60,7 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          elevation: 0,
           title: _appBar(),
           backgroundColor: AppColors.colorcement,
         ),
@@ -156,6 +157,52 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
             ],
           ),
         ),
+        Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              const Text(
+                                " Powerd by ARMS",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 10),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(bottom: 10.0),
+                                child: Text(
+                                  "Ⓡ",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: 8),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              const Text(
+                                " Last Sync 2-Mar-2022 4:00",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 10),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    color: AppColors.themeColor,
+                  )
       ],
     );
   }
