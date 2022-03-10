@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Row(
                         children: List.generate(
-                            150 ~/ 2,
+                          MediaQuery.of(context).size.width  ~/ 2,
                             (index) => Expanded(
                                   child: Container(
                                     color: index % 2 == 0

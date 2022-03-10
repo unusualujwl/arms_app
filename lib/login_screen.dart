@@ -74,12 +74,15 @@ class InitState extends State<LoginScreen> {
                       ),
                       alignment: Alignment.center,
                       child: const TextField(
+                        textAlign: TextAlign.center,
                         cursorColor: Color(0xFF01579B),
                         decoration: InputDecoration(
                           // icon: Icon(
                           //   Icons.account_circle,
                           //   color: Color(0xFF01579B),
                           // ),
+                           isDense: true, 
+                      contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                           hintText: "Enter Client ID",
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -115,11 +118,14 @@ class InitState extends State<LoginScreen> {
                       alignment: Alignment.center,
                       child: const TextField(
                         cursorColor: Color(0xFF01579B),
+                        textAlign: TextAlign.center,
                         decoration: InputDecoration(
                           // icon: Icon(
                           //   Icons.account_circle,
                           //   color: Color(0xFF01579B),
                           // ),
+                            isDense: true, 
+                      contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                           hintText: "Password",
                           hintStyle: TextStyle(color: Colors.black54),
                           enabledBorder: InputBorder.none,

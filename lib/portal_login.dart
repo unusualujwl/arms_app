@@ -88,6 +88,8 @@ class _PortalLoginState extends State<PortalLogin> {
                         enabledBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         disabledBorder: InputBorder.none,
+                        isDense: true, 
+                      contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                         hintText: ' Login ID',
                         suffixIcon: IconButton(
                             onPressed: () {

@@ -141,6 +141,8 @@ class _ClientIdState extends State<ClientId> {
                         errorBorder: InputBorder.none,
                         disabledBorder: InputBorder.none,
                         hintText: 'Client Id',
+                         isDense: true, 
+                      contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                         suffixIcon: IconButton(
                             onPressed: () async {
                               // await fetchDetailAppointmentSchedules(

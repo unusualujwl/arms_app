@@ -440,7 +440,7 @@ class _LeavesState extends State<Leaves> with SingleTickerProviderStateMixin {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: List.generate(
-            150 ~/ 2,
+             MediaQuery.of(context).size.width  ~/ 2,
             (index) => Expanded(
                   child: Container(
                     color: index % 2 == 0 ? Colors.transparent : Colors.grey,
