@@ -4,6 +4,7 @@ import 'package:arms_app/constants.dart';
 import 'package:arms_app/logs/logs.dart';
 import 'package:flutter/material.dart';
 import 'client_id.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,13 +18,17 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    LogsGenrate().initmethod();
+    if (!kIsWeb) {
+      LogsGenrate().initmethod();
+    }
     Timer(const Duration(seconds: 3), () {
       print("this is first log");
 
-      LogsGenrate.logger.d("Debug log");
-      LogsGenrate.logger.i("Info log");
-      LogsGenrate.logger.w("Warning log");
+      if (!kIsWeb) {
+        LogsGenrate.logger.d("Debug log");
+        LogsGenrate.logger.i("Info log");
+        LogsGenrate.logger.w("Warning log");
+      }
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (BuildContext context) => const ClientId()));
     });
